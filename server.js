@@ -5,6 +5,8 @@ const cors = require("cors");
 const connectDB = require("./config/database");
 const userRoutes = require("./routes/users")
 const authRoutes = require("./routes/auth")
+const forgetPasswordRoute = require("./routes/forget_password")
+const resetPasswordRoute = require("./routes/reset_password")
 
 // Database connection
 connectDB;
@@ -17,10 +19,12 @@ app.use(cors());
 // Routes
 app.use("/api/users", userRoutes);
 app.use("/api/auth", authRoutes);
+app.use("/api/forgot_password",forgetPasswordRoute )
+app.use("/api/reset_password",resetPasswordRoute)
 
-app.use("/", (req, res) => {
-  res.send("Home Page");
-});
+// app.use("/", (req, res) => {
+//   res.send("Home Page");
+// });
 
 const port = process.env.PORT || 8080;
 app.listen(port, () => {
