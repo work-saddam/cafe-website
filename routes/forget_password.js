@@ -3,6 +3,7 @@ const { User } = require("../models/user");
 const Joi = require("joi");
 const randomstring = require('randomstring');
 const nodemailer = require('nodemailer');
+require("dotenv").config();
 
 router.post("/", async (req, res) => {
     try {
@@ -46,8 +47,8 @@ const sendResetPasswordMail = async (name, email, token) => {
 
         const transporter = nodemailer.createTransport({
             host: "smtp.gmail.com",
-            // port: 465,
-            port: 587,
+            port: 465,
+            // port: 587,
             secure: false,
             requireTLS: true,
             service: "gmail",

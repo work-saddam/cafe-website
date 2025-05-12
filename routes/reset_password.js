@@ -9,7 +9,7 @@ router.post("/", async (req, res) => {
         if (error)
             return res.json({ status: 'error', error: error.details[0].message }); 
 
-        const token = req.query.token;
+        const token = req.body.token;
         // console.log(token);
         if (!token)
             return res.json({ status: 'error', error: "Invalid link" });
