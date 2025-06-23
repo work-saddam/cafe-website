@@ -41,7 +41,7 @@ const sendResetPasswordMail = async (name, email, token) => {
             from: process.env.EMAILUSER,
             to: email,
             subject: "For Reset Password",
-            html: '<p1> ' + name + ' , please click the link and <a href="http://localhost:8080/reset_password?token=' + token + '" >reset your password </a>'
+            html: '<p1> ' + name + ' , please click the link and <a href="https://cafe-website-4src.onrender.com/reset_password?token=' + token + '" >reset your password </a>'
             // text: "first sender"
         }
 
